@@ -16,6 +16,7 @@
  */
 package org.jboss.narayana.quickstart.spring;
 
+import com.arjuna.ats.arjuna.recovery.RecoveryManager;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.jta.narayana.DbcpXADataSourceWrapper;
@@ -36,6 +37,7 @@ public class QuickstartApplication {
     public static final Object TO_WAIT = new Object();
 
     public static void main(String[] args) throws Exception {
+        RecoveryManager.delayRecoveryManagerThread();
         if (args.length != 1 && args.length != 2) {
             throw new IllegalArgumentException("Invalid arguments provided. See README.md for usage examples");
         } else if (args.length == 1 && !args[0].toUpperCase().equals(CompleteAction.RECOVERY.name())) {

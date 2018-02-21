@@ -118,7 +118,7 @@ public class QuickstartService {
     private void waitForRecovery(List<Entry> entriesBefore) throws Exception {
         boolean isComplete = false;
 
-        for (int i = 0; i < 3 && !isComplete; i++) {
+        for (int i = 0; i < 7 && !isComplete; i++) {
             sleep(5000);
             isComplete = entriesBefore.size() < entriesService.getAll().size();
         }
